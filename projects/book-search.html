@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="API project for searching books and displaying results." />
+  <title>Uliana Topilina - Book Search App</title>
+  <link rel="icon" href="../favicon.svg">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="logo" href="../index.html" aria-label="Uliana Topilina home">UT</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav class="nav-links">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="../index.html#contact">Contact</a>
+      <a class="nav-pill" href="https://github.com/ulianatop" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="project-detail">
+    <section class="section detail-hero">
+      <p class="eyebrow">Android app project</p>
+      <h1>Book Search App</h1>
+      <p>
+        This is an Android mobile app project for searching books by title or author. The app connects to the
+        Open Library API, displays matching books in a scrollable list, and lets users open a detail screen
+        for a selected book.
+      </p>
+      <div class="tags">
+        <span>Java</span>
+        <span>REST API</span>
+        <span>JSON</span>
+        <span>Android Studio</span>
+      </div>
+
+      <div class="project-action-icons">
+        <a href="https://github.com/ulianatop" target="_blank" rel="noopener"
+          aria-label="View project GitHub repo" title="View GitHub repo">
+          <img src="../images/github.png" alt="" class="project-action-icon">
+        </a>
+      </div>
+    </section>
+
+    <section class="section detail-grid">
+      <div class="detail-card">
+        <h2>Problem and Objective</h2>
+        <p>
+          The goal of this project was to make book search quick and readable on a mobile device. The objective
+          was to let users enter a book title or author name, retrieve matching results from an external API,
+          and display book titles, authors, and cover images.
+        </p>
+      </div>
+
+      <div class="detail-card">
+        <h2>Technical Implementation</h2>
+        <p>
+          The app is built in Java using Android Studio. Retrofit is used to send requests to the Open Library
+          API, Gson converts the JSON response into Java objects, RecyclerView displays the list of books, and
+          Glide loads book cover images from Open Library cover URLs.
+        </p>
+      </div>
+
+      <div class="detail-card">
+        <h2>Challenges and Solutions</h2>
+        <p>
+          One challenge was handling API data that were empty or incomplete, such as books without cover
+          images or search results that return no matches.
+        </p>
+        <p>
+          The solution was to check the response before displaying
+          it, show messages for empty or failed searches, and use a placeholder image when a book cover is missing.
+        </p>
+      </div>
+
+      <div class="detail-card">
+        <h2>Results and Impact</h2>
+        <p>
+          The app successfully supports searching for books, viewing results in a RecyclerView, loading cover images,
+          and opening a detail page for a selected book.
+        </p>
+        <p>
+          This project helped me practice Android app development,
+          API requests, JSON parsing, and moving data between activities.
+        </p>
+      </div>
+
+      <div class="detail-card wide">
+        <h2>Project Screenshots</h2>
+        <p>
+          These screenshots show the main search results screen and the book detail screen.
+        </p>
+
+        <div class="phone-screenshot-grid">
+          <div class="screenshot-item">
+            <h3>Search Results Screen</h3>
+            <img src="../images/book-search.png" alt="Screenshot showing book search results"
+              class="detail-image phone-detail-image">
+          </div>
+
+          <div class="screenshot-item">
+            <h3>Book Detail Screen</h3>
+            <img src="../images/book-detail.png" alt="Screenshot of book detail screen"
+              class="detail-image phone-detail-image">
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-card wide">
+        <h2>Code Snippet</h2>
+        <p>
+          This snippet shows the main API request. It sends the search query to the Open Library API,
+          checks the response, displays matching books in the RecyclerView, and opens the detail screen
+          when a user taps a book.
+        </p>
+
+        <pre><code>private void searchBooks(String query) {
+    progressBar.setVisibility(View.VISIBLE);
+
+    RetrofitClient.getApiService().searchBooks(query).enqueue(new Callback&lt;BookResponse&gt;() {
+        @Override
+        public void onResponse(@NonNull Call&lt;BookResponse&gt; call,
+                               @NonNull Response&lt;BookResponse&gt; response) {
+            progressBar.setVisibility(View.GONE);
+
+            if (response.isSuccessful() && response.body() != null) {
+                List&lt;Book&gt; books = response.body().getItems();
+
+                if (books != null && !books.isEmpty()) {
+                    adapter = new BookAdapter(books, book -&gt; {
+                        Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                        intent.putExtra("book", book);
+                        startActivity(intent);
+                    });
+
+                    recyclerView.setAdapter(adapter);
+                } else {
+                    Toast.makeText(MainActivity.this, "No results", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(MainActivity.this, "Failed to load results", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        @Override
+        public void onFailure(@NonNull Call&lt;BookResponse&gt; call, @NonNull Throwable t) {
+            progressBar.setVisibility(View.GONE);
+            Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    });
+}</code></pre>
+      </div>
+
+      <div class="detail-card wide">
+        <h2>Future Enhancements</h2>
+        <p>
+          Future improvements include adding saved or favorite books, improving the visual design, and adding more book
+          details.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Uliana Topilina</p>
+  </footer>
+  <script src="../script.js"></script>
+</body>
+
+</html>

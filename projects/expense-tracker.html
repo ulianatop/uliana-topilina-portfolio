@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Full-stack coursework project for tracking personal expenses." />
+  <title>Uliana Topilina - Expense Tracker Web App</title>
+  <link rel="icon" href="../favicon.svg">
+  <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="logo" href="../index.html" aria-label="Uliana Topilina home">UT</a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav class="nav-links">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../resume.html">Resume</a>
+      <a href="../index.html#contact">Contact</a>
+      <a class="nav-pill" href="https://github.com/ulianatop" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main class="project-detail">
+    <section class="section detail-hero">
+      <p class="eyebrow">Full-stack project</p>
+      <h1>Expense Tracker Web App</h1>
+      <p>
+        This is a full-stack coursework project that helps users track personal expenses by category.
+        The app includes user registration and login, password hashing, token-based access, category management,
+        and expense records that belong to the logged-in user. It was built with a JavaScript frontend, a custom
+        Node.js backend, and a MySQL database.
+      </p>
+
+      <div class="tags">
+        <span>JavaScript</span>
+        <span>Node.js</span>
+        <span>MySQL</span>
+        <span>HTML/CSS</span>
+        <span>JWT</span>
+        <span>REST API</span>
+      </div>
+
+      <div class="project-action-icons">
+        <a href="https://github.com/ulianatop" target="_blank" rel="noopener"
+          aria-label="View project GitHub repo" title="View GitHub repo">
+          <img src="../images/github.png" alt="" class="project-action-icon">
+        </a>
+      </div>
+    </section>
+
+    <section class="section detail-grid">
+      <div class="detail-card">
+        <h2>Problem and Objective</h2>
+        <p>
+          Many people need a simple way to track their spending without using a complicated finance app.
+          The objective of this project was to build a practical app with clear user flows for registering, logging in,
+          adding expenses, viewing records, organizing categories, and managing user-specific data.
+        </p>
+      </div>
+
+      <div class="detail-card">
+        <h2>Technical Implementation</h2>
+        <p>
+          The project uses a JavaScript frontend, a custom Node.js backend, and a MySQL database. The backend includes
+          REST API routes for users, categories, and expenses. The app also uses bcrypt for password hashing,
+          JWT tokens for login, and Vitest for unit testing.
+        </p>
+      </div>
+
+      <div class="detail-card">
+        <h2>Challenges and Solutions</h2>
+        <p>
+          One of the main challenges was adding multiple-user support so each user could have their own expenses and
+          categories. The solution was to add registration and login, hash passwords with bcrypt, create JWT tokens
+          after login, and use backend checks so each user could only access their own records.
+        </p>
+      </div>
+
+      <div class="detail-card">
+        <h2>Results and Impact</h2>
+        <p>
+          The current version supports user registration, login, password hashing, token-based access,
+          user-specific categories, and expense management.
+        </p>
+        <p>
+          This project helped me practice how the frontend,
+          backend, database, authentication, and tests work together in a full-stack web app. It also helped
+          me understand what frameworks do behind the scenes because the backend was built with custom
+          Node.js logic instead of backend frameworks.
+        </p>
+      </div>
+
+      <div class="detail-card wide">
+        <h2>Project Screenshots</h2>
+        <p>
+          These screenshots show the main user flow: registering or logging in, managing expenses, and organizing
+          categories.
+        </p>
+
+        <div class="screenshot-list">
+          <div class="screenshot-item">
+            <h3>Login / Registration</h3>
+            <img src="../images/expense-login.png" alt="Screenshot of Expense Tracker login" class="detail-image">
+          </div>
+
+          <div class="screenshot-item">
+            <h3>Expense Tracker Page</h3>
+            <img src="../images/expense.png" alt="Screenshot of Expense Tracker expense records" class="detail-image">
+          </div>
+
+          <div class="screenshot-item">
+            <h3>Categories Page</h3>
+            <img src="../images/expense-categories.png" alt="Screenshot of Expense Tracker categories"
+              class="detail-image">
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-card wide">
+        <h2>Code Snippet</h2>
+        <p>
+          This snippet shows part of the user registration and login logic. Passwords are hashed with bcrypt before
+          being stored, and a JWT token is created after a successful login.
+        </p>
+
+        <pre><code>async addUser(username, password) {
+    if (!username || username.trim().length == 0) {
+        throw new Error('Username must not be empty');
+    }
+
+    if (!password || password.length == 0) {
+        throw new Error('Password must not be empty');
+    }
+
+    const passwordHash = await bcrypt.hash(password, 10);
+    const result = await this.db.insertUser(username, passwordHash);
+
+    return result.insertId;
+}
+
+async loginUser(req, res) {
+    try {
+        const user = await this.reqParser(req);
+
+        await this.usersState.verifyUser(user.username, user.password);
+
+        const token = jwt.sign(
+            { username: user.username },
+            process.env.JWT_SECRET
+        );
+
+        this.resCreator(200, { token: token }, res);
+    } catch (err) {
+        this.resCreator(err.statusCode || 500, { error: err.message }, res);
+    }
+}</code></pre>
+      </div>
+
+      <div class="detail-card wide">
+        <h2>Future Enhancements</h2>
+        <p>
+          Future improvements include improving the visual design,
+          filtering expenses by month or category, and implementing session cookies for login sessions.
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Uliana Topilina</p>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+
+</html>

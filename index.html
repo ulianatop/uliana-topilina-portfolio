@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Portfolio of Uliana Topilina, a software engineering student focused on full-stack web development" />
+    <title>Uliana Topilina - Software Engineering Student</title>
+    <link rel="icon" href="favicon.svg">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <header class="site-header">
+        <a class="logo" href="index.html" aria-label="Uliana Topilina home">UT</a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+        <nav class="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="resume.html">Resume</a>
+            <a href="index.html#contact">Contact</a>
+            <a class="nav-pill" href="https://github.com/ulianatop" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero section">
+            <div class="hero-card">
+                <div class="hero-text">
+                    <p class="eyebrow">Software Engineering Student</p>
+                    <h1>Hi, I'm Uliana Topilina</h1>
+                    <p class="typing-line">I'm focused on <span id="typewriter">full-stack web development.</span></p>
+                    <p class="hero-copy">
+                        I am a software engineering student focused on full-stack web development, with coursework and
+                        projects in JavaScript, Java, SQL, Node.js, and database design. My background in pharmacy and
+                        self-employment helps me
+                        bring responsibility, attention to detail, and strong communication into tech.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button primary" href="#projects">Explore Projects</a>
+                        <a class="button secondary" href="resume.html">View Resume</a>
+                    </div>
+                </div>
+                <div class="profile-wrap">
+                    <div class="soft-orb"></div>
+                    <img src="images/profile.jpg" alt="Portrait of me"
+                        class="profile-photo" />
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section two-column">
+            <div>
+                <p class="eyebrow">About me</p>
+                <h2>Learning software development with a people-focused mindset</h2>
+            </div>
+            <div class="text-block">
+                <p>
+                    I am a software engineering student at Lake Washington Institute of Technology with a focus on
+                    full-stack web development. Through my coursework and projects, I am building experience with Java,
+                    JavaScript, SQL, Node.js, HTML/CSS, and database design.
+                </p>
+
+                <p>
+                    Before studying software engineering, I worked in pharmacy and ran a self-employed wellness business
+                    for infants and children. Those experiences helped me develop patience, responsibility, attention to
+                    detail, communication skills, and a people-focused mindset that I would love to bring into tech.
+                </p>
+
+                <p>
+                    I am interested in learning how technology can be used to solve real problems and make everyday
+                    tasks easier for users. My long-term goal is to grow as a full-stack developer and eventually move
+                    toward product management, especially in areas connected to health technology, AI, and user-centered
+                    products.
+                </p>
+
+                <p>
+                    Outside of school, I enjoy traveling, exploring new places, learning about different cultures, and
+                    connecting with people from different backgrounds. These experiences help me look beyond my own
+                    perspective, stay open-minded, and better understand how people's backgrounds can shape the way they
+                    communicate, learn, and use technology. This is something I want to keep in mind as I continue
+                    learning and growing in software development.
+                </p>
+            </div>
+        </section>
+
+        <section class="section skills-section">
+            <p class="eyebrow">Skills</p>
+            <div class="skills-strip" aria-label="Technical skills">
+                <span>Java</span>
+                <span>JavaScript</span>
+                <span>Node.js</span>
+                <span>SQL</span>
+                <span>HTML/CSS</span>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="section-heading">
+                <p class="eyebrow">View my work</p>
+                <h2>Featured Projects</h2>
+            </div>
+
+            <div class="project-grid">
+                <article class="project-card featured">
+                    <div class="project-media wide-preview">
+                        <img src="images/montessori.png" alt="Screenshot of Student Attendance Tracker"
+                            class="project-image" />
+                    </div>
+                    <div class="project-content">
+                        <p class="status">Full-stack team project • In progress</p>
+                        <h3>Montessori Student Attendance Tracker</h3>
+                        <p>
+                            An in-progress attendance system designed to help a Montessori school record student
+                            check-ins and check-outs using authorized adult codes and timestamped attendance records.
+                        </p>
+                        <p>
+                            My contributions so far include database design, SQL database setup, backend query planning,
+                            login request handling, documentation, and team collaboration using Jira and GitHub.
+                        </p>
+                        <div class="tags">
+                            <span>JavaScript</span>
+                            <span>Node.js</span>
+                            <span>Express</span>
+                            <span>React</span>
+                            <span>SQL</span>
+                            <span>REST API</span>
+                        </div>
+                        <div class="project-card-bottom">
+                            <a href="projects/montessori.html">Read project details →</a>
+
+                            <a href="https://github.com/ulianatop" target="_blank" rel="noopener"
+                                aria-label="View GitHub repo">
+                                <img src="images/github.png" alt="" class="project-github-icon">
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-media wide-preview">
+                        <img src="images/expense.png" alt="Screenshot of Expense Tracker Web App" class="project-image" />
+                    </div>
+                    <div class="project-content">
+                        <p class="status">Full-stack project</p>
+                        <h3>Expense Tracker Web App</h3>
+                        <p>
+                            A web application for tracking expenses, organizing spending categories, and allowing users
+                            to register, log in, and manage their own expenses.
+                        </p>
+                        <p>
+                            My work focused on implementing and connecting full-stack features, including client-side
+                            pages,
+                            server API handlers, database logic, user authentication flow, and unit tests. I also worked
+                            with
+                            multiple-user support so each user could access their own expenses and categories after
+                            logging in.
+                        </p>
+                        <div class="tags">
+                            <span>JavaScript</span>
+                            <span>Node.js</span>
+                            <span>MySQL</span>
+                            <span>HTML/CSS</span>
+                            <span>JWT</span>
+                            <span>REST API</span>
+                        </div>
+                        <div class="project-card-bottom">
+                            <a href="projects/expense-tracker.html">Read project details →</a>
+
+                            <a href="https://github.com/ulianatop" target="_blank" rel="noopener"
+                                aria-label="View GitHub repo">
+                                <img src="images/github.png" alt="" class="project-github-icon">
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-media phone-preview">
+                        <img src="images/book.png" alt="Screenshot of Book Search App" class="project-image" />
+                    </div>
+
+                    <div class="project-content">
+                        <p class="status">Android app project</p>
+                        <h3>Book Search App</h3>
+                        <p>
+                            A mobile app that lets users search for books by title or author and view matching results
+                            with book covers, titles, and authors.
+                        </p>
+                        <p>
+                            My role included implementing the search flow, working with API data, and displaying book results
+                            in a readable list with covers, titles, and authors.
+                        </p>
+                        <div class="tags">
+                            <span>Java</span>
+                            <span>REST API</span>
+                            <span>JSON</span>
+                            <span>Android Studio</span>
+                        </div>
+                        <div class="project-card-bottom">
+                            <a href="projects/book-search.html">Read project details →</a>
+
+                            <a href="https://github.com/ulianatop" target="_blank" rel="noopener"
+                                aria-label="View GitHub repo">
+                                <img src="images/github.png" alt="" class="project-github-icon">
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-card">
+            <div>
+                <p class="eyebrow">Contact</p>
+                <h2>Get in Touch</h2>
+                <p>I'm always happy to connect with students, mentors, and professionals in software development.</p>
+
+                <form class="simple-contact-form" name="contact" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="contact">
+
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
+
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="What's this about?">
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Write a short message..." required></textarea>
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+
+            <div class="contact-info-card">
+                <h3>Let's Connect</h3>
+
+                <div class="contact-info-list">
+                    <a href="mailto:uliana.a.topilina@gmail.com">
+                        <img src="images/email.png" alt="" class="contact-icon">
+                        <div>
+                            <strong>Email</strong>
+                            <span>uliana.a.topilina@gmail.com</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/uliana-topilina/" target="_blank" rel="noopener">
+                        <img src="images/linkedin.png" alt="" class="contact-icon">
+                        <div>
+                            <strong>LinkedIn</strong>
+                            <span>linkedin.com/in/uliana-topilina</span>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/ulianatop" target="_blank" rel="noopener">
+                        <img src="images/github.png" alt="" class="contact-icon">
+                        <div>
+                            <strong>GitHub</strong>
+                            <span>github.com/ulianatop</span>
+                        </div>
+                    </a>
+
+                    <div class="contact-location">
+                        <img src="images/gps.png" alt="" class="contact-icon">
+                        <div>
+                            <strong>Location</strong>
+                            <span>Redmond, Washington</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© <span id="year"></span> Uliana Topilina</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
