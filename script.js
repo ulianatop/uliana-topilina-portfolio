@@ -50,3 +50,25 @@ function typeLoop() {
 }
 
 typeLoop();
+
+const contactForm = document.querySelector("#contact-form");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const formData = new FormData(contactForm);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString()
+    })
+      .then(() => {
+        window.location.href = "success.html";
+      })
+      .catch(() => {
+        alert("Sorry, something went wrong. Please try again or email me directly.");
+      });
+  });
+}
