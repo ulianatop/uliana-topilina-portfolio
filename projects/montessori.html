@@ -25,13 +25,19 @@
 
   <main class="project-detail">
     <section class="section detail-hero">
-      <p class="eyebrow">Full-stack team project • In progress</p>
+      <p class="eyebrow">Full-stack team project</p>
       <h1>Montessori Student Attendance Tracker</h1>
       <p>
-        This is a team coursework project for Northern Lights Montessori School. The goal is to create a web app
-        that supports a simple attendance workflow where authorized adults can check students in and out.
-        The project is still in progress, so the current version focuses on the main attendance flow,
-        database structure, backend routes, and an early admin task page.
+        This full-stack team project was completed for a Software Engineering course.
+        Our six-person team built a student attendance check-in/check-out system designed
+        for a Montessori school. The system allows authorized adults to check students
+        in and out using a PIN or QR code while maintaining timestamped attendance records.
+      </p>
+
+      <p>
+        The application also provides administrative tools for managing students,
+        authorized adults, adult-student relationships, administrator accounts, PIN
+        lookup, and attendance reports.
       </p>
 
       <div class="tags">
@@ -41,10 +47,13 @@
         <span>Express</span>
         <span>MySQL</span>
         <span>REST API</span>
+        <span>bcrypt</span>
+        <span>Vitest</span>
+        <span>GitHub Actions</span>
       </div>
 
       <div class="project-action-icons">
-        <a href="https://github.com/ulianatop/montessori-student-attendance-tracker" target="_blank" rel="noopener"
+        <a href="https://github.com/ulianatop/student-attendance-tracker" target="_blank" rel="noopener"
           aria-label="View project GitHub repo" title="View GitHub repo">
           <img src="../images/github.png" alt="" class="project-action-icon">
         </a>
@@ -64,138 +73,86 @@
       <div class="detail-card">
         <h2>Technical Implementation</h2>
         <p>
-          The current project uses JavaScript, React, Node.js, Express, and MySQL.
-          The frontend includes an attendance tracker page and an admin tasks page. The backend includes
-          routes for verifying an adult PIN, finding the matching student, and toggling the student's
-          attendance status between checked in and checked out.
+          The application uses React and Vite for the frontend, Node.js and Express
+          for the backend, and MySQL for data storage. REST API routes support PIN
+          verification, student lookup, attendance status updates, and timestamped
+          check-in and check-out records. The frontend also supports generating and
+          scanning QR codes.
+        </p>
+
+        <p>
+          The administrative interface supports adding students and authorized adults,
+          connecting adults with students, creating administrator accounts, looking up
+          adult PINs, and generating attendance reports. Administrator passwords are
+          protected using bcrypt.
         </p>
       </div>
 
       <div class="detail-card">
         <h2>Challenges and Solutions</h2>
         <p>
-          One challenge was making sure the backend routes matched the database structure as the project requirements
-          became clearer.
-          We needed to connect students, authorized adults, adult codes, and attendance records in a way that
-          supported the main check-in/check-out workflow.
+          One challenge was verifying that an authorized adult was connected to a
+          student before allowing an attendance update.
         </p>
         <p>
-          The solution was to focus first on checking the authorized adult code and finding the correct student. Other
-          features, like admin tools, reports, and security improvements, were left for future work.
+          We addressed this by connecting students and authorized adults through a
+          relationship table using their unique IDs. The attendance workflow verifies
+          the adult's PIN and student relationship before allowing a check-in or
+          check-out, and each attendance record stores the associated student, adult,
+          and timestamp.
         </p>
       </div>
 
       <div class="detail-card">
-        <h2>Results and Impact</h2>
+        <h2>Results and Learning</h2>
         <p>
-          We got the main attendance workflow working, including checking an authorized adult code and finding the
-          correct student.
+          The completed application supports PIN and QR code check-in/check-out,
+          administrator login, student and authorized-adult management, relationship
+          management, PIN lookup, and attendance reporting.
         </p>
         <p>
-          Through this project, I practiced designing the database structure, writing SQL queries,
-          connecting backend routes to the data, and contributing to project documentation.
-          It helped me better understand how database design, backend logic, and user workflow need to work together in
-          a full-stack app.
+          The project includes 90 automated tests using Vitest, with GitHub Actions
+          running the tests and checking the frontend build. Through this project, I
+          strengthened my experience with relational database design, SQL, REST APIs,
+          full-stack integration, testing, documentation, and maintaining a shared
+          team codebase.
         </p>
       </div>
 
       <div class="detail-card wide">
         <h2>Project Screenshots</h2>
         <p>
-          These screenshots show the database design/ERD, current attendance form and admin task page.
+          These screenshots show the main attendance workflow, QR code functionality,
+          administrative reporting, and relational database design.
         </p>
 
         <div class="screenshot-list">
           <div class="screenshot-item">
+            <h3>Main Attendance Page</h3>
+            <img src="../images/montessori-main.png" alt="Main student attendance check-in and check-out page"
+              class="detail-image" loading="lazy">
+          </div>
+
+          <div class="screenshot-item">
+            <h3>QR Code Functionality</h3>
+            <img src="../images/montessori-qr-code.png" alt="Generated QR code for the student attendance workflow"
+              class="detail-image" loading="lazy">
+          </div>
+
+          <div class="screenshot-item">
+            <h3>Attendance Report</h3>
+            <img src="../images/montessori-report.png"
+              alt="Administrative attendance report with student check-in and check-out records" class="detail-image"
+              loading="lazy">
+          </div>
+
+          <div class="screenshot-item">
             <h3>Database Design / ERD</h3>
-            <img src="../images/montessori-erd.png" alt="ERD diagram for the Montessori database" class="detail-image">
-          </div>
-
-          <div class="screenshot-item">
-            <h3>Attendance Tracker Page</h3>
-            <img src="../images/montessori.png" alt="Screenshot of the attendance form" class="detail-image">
-          </div>
-
-          <div class="screenshot-item">
-            <h3>Administrative Tasks Page</h3>
-            <img src="../images/montessori-admin.png" alt="Screenshot of the administrative tasks page"
-              class="detail-image">
+            <img src="../images/montessori-erd.png"
+              alt="Entity relationship diagram for the student attendance database" class="detail-image" loading="lazy">
           </div>
         </div>
       </div>
-
-      <div class="detail-card wide">
-        <h2>Code Snippet</h2>
-        <p>
-          This snippet shows part of the backend route that verifies an authorized adult PIN and checks whether the
-          entered student name
-          matches a student connected to that adult. This is one of the main pieces of functionality because
-          it connects the check-in/check-out workflow to the database.
-        </p>
-
-        <pre><code>app.post("/verify-pin", (req, res) =&gt; {
-    const { pin, firstName, lastName } = req.body || {};
-    const pinString = String(pin || "").trim();
-
-    if (!pinString) {
-        return res.status(400).json({
-            success: false,
-            message: "Missing PIN"
-        });
-    }
-
-    const conditions = [
-        "aa.AdultCode = ?",
-        "s.Active = TRUE",
-        "aa.Active = TRUE",
-        "saa.Active = TRUE"
-    ];
-
-    const params = [pinString];
-
-    if (firstName && lastName) {
-        conditions.push("s.StudentFirstName = ?");
-        conditions.push("s.StudentLastName = ?");
-        params.push(firstName.trim(), lastName.trim());
-    }
-
-    const sql = `
-        SELECT s.StudentID, s.StudentFirstName,
-               s.StudentLastName, s.AttendanceStatus
-        FROM STUDENT s
-        JOIN STUDENT_AUTHORIZED_ADULT saa
-            ON s.StudentID = saa.StudentID
-        JOIN AUTHORIZED_ADULT aa
-            ON saa.AdultID = aa.AdultID
-        WHERE ${conditions.join(" AND ")}
-    `;
-
-    db.query(sql, params, (err, results) =&gt; {
-        if (err) {
-            return res.status(500).json({ error: err.message });
-        }
-
-        if (!Array.isArray(results) || results.length === 0) {
-            return res.json({
-                success: false,
-                message: "Invalid PIN or no matching student"
-            });
-        }
-
-        res.json({ success: true, student: results[0] });
-    });
-});</code></pre>
-      </div>
-
-      <div class="detail-card wide">
-        <h2>Future Enhancements</h2>
-        <p>
-          Future improvements include completing the remaining backend and admin functionality, improving
-          the design consistency across pages, adding stronger input validation, improving password security,
-          and polishing the README and other project documentation.
-        </p>
-      </div>
-
     </section>
   </main>
 
