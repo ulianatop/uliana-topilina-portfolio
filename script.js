@@ -16,7 +16,7 @@ if (year) {
 const typewriter = document.querySelector("#typewriter");
 const phrases = [
   "full-stack web development.",
-  "JavaScript, Java, and SQL."
+  "JavaScript, Python, and SQL."
 ];
 
 let phraseIndex = 0;
