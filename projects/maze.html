@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="C++ coursework project that generates and solves random mazes." />
+    <title>Uliana Topilina - Maze Generator and Solver</title>
+    <link rel="icon" href="../favicon.svg">
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="logo" href="../index.html" aria-label="Uliana Topilina home">UT</a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+
+        <nav class="nav-links">
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#projects">Projects</a>
+            <a href="../resume.html">Resume</a>
+            <a href="../index.html#contact">Contact</a>
+            <a class="nav-pill" href="https://github.com/ulianatop" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+    </header>
+
+    <main class="project-detail">
+        <section class="section detail-hero">
+            <p class="eyebrow">C++ algorithm project</p>
+            <h1>Maze Generator and Solver</h1>
+
+            <p>
+                This is a C++ coursework project that generates a random maze and searches
+                for a path from the top-left entrance to the bottom-right exit. OpenCV
+                visualizes the maze generation and solving processes as they run.
+            </p>
+
+            <div class="tags">
+                <span>C++</span>
+                <span>OpenCV</span>
+                <span>CMake</span>
+                <span>Depth-First Search</span>
+                <span>Backtracking</span>
+                <span>Object-Oriented Programming</span>
+            </div>
+
+            <div class="project-action-icons">
+                <a href="https://github.com/ulianatop/maze-generator-solver" target="_blank" rel="noopener"
+                    aria-label="View project GitHub repo" title="View GitHub repo">
+                    <img src="../images/github.png" alt="" class="project-action-icon">
+                </a>
+            </div>
+        </section>
+
+        <section class="section detail-grid">
+            <div class="detail-card">
+                <h2>Problem and Objective</h2>
+                <p>
+                    The objective was to create a grid-based maze, remove walls to produce
+                    randomized paths, and then find a valid route from the entrance to the
+                    exit. The program also needed to display both processes visually so the
+                    algorithm's progress could be followed.
+                </p>
+            </div>
+
+            <div class="detail-card">
+                <h2>Technical Implementation</h2>
+                <p>
+                    The project uses Square, MazeSquare, and Maze classes to represent the
+                    grid, walls, visited cells, and solution path. The maze is stored as a
+                    dynamically allocated two-dimensional grid of MazeSquare objects.
+                </p>
+                <p>
+                    Stack-based traversal and randomized selection of unvisited neighboring
+                    cells are used to generate the maze. A depth-first search with
+                    backtracking then explores open paths and removes unsuccessful cells from
+                    the displayed solution. OpenCV draws and updates the maze as the program
+                    runs, while CMake handles the build configuration.
+                </p>
+            </div>
+
+            <div class="detail-card">
+                <h2>Challenges and Solutions</h2>
+                <p>
+                    One challenge was removing unsuccessful paths from the visualization while
+                    preserving and displaying the final solution.
+                </p>
+                <p>
+                    I addressed this by tracking visited cells and solution-path cells separately.
+                    When the solver reaches a dead end, it backtracks using the stack and removes
+                    that cell from the displayed path. This leaves only the successful route once
+                    the exit is reached.
+                </p>
+            </div>
+
+            <div class="detail-card">
+                <h2>Results and Learning</h2>
+                <p>
+                    The completed program generates a randomized maze, displays the generation
+                    process, searches for a route to the exit, and visualizes the final
+                    solution.
+                </p>
+                <p>
+                    Through this project, I strengthened my understanding of depth-first
+                    search, backtracking, stack-based traversal, object-oriented programming,
+                    inheritance, polymorphism, pointers, dynamic memory, and two-dimensional
+                    grid management in C++.
+                </p>
+            </div>
+
+            <div class="detail-card wide">
+                <h2>Project Demo</h2>
+                <p>
+                    This animation shows the program generating the maze and searching for
+                    the solution path.
+                </p>
+
+                <div class="screenshot-list">
+                    <div class="screenshot-item">
+                        <h3>Maze Generation and Solution</h3>
+                        <img src="../images/maze-demo.gif"
+                            alt="Animation of the C++ program generating and solving a maze"
+                            class="detail-image maze-detail-image" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© <span id="year"></span> Uliana Topilina</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>
