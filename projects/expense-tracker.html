@@ -41,6 +41,9 @@
         <span>HTML/CSS</span>
         <span>JWT</span>
         <span>REST API</span>
+        <span>bcrypt</span>
+        <span>Vitest</span>
+        <span>GitHub Actions</span>
       </div>
 
       <div class="project-action-icons">
@@ -64,9 +67,12 @@
       <div class="detail-card">
         <h2>Technical Implementation</h2>
         <p>
-          The project uses a JavaScript frontend, a custom Node.js backend, and a MySQL database. The backend includes
-          REST API routes for users, categories, and expenses. The app also uses bcrypt for password hashing,
-          JWT tokens for login, and Vitest for unit testing.
+          The project uses a JavaScript frontend, a custom Node.js backend, and a
+          MySQL database. REST API routes support user authentication and CRUD
+          operations for expenses and categories. Passwords are hashed with bcrypt,
+          while JWT authentication and backend middleware protect user-specific data.
+          Vitest covers client, server, database, authentication, routing, and API
+          behavior, with GitHub Actions running the tests automatically.
         </p>
       </div>
 
@@ -80,93 +86,48 @@
       </div>
 
       <div class="detail-card">
-        <h2>Results and Impact</h2>
+        <h2>Results and Learning</h2>
         <p>
-          The current version supports user registration, login, password hashing, token-based access,
-          user-specific categories, and expense management.
+          The completed app supports user registration and login, secure
+          password storage, JWT-protected requests, and user-specific expense and
+          category management. Users can add, view, edit, and delete both expenses
+          and categories.
         </p>
         <p>
-          This project helped me practice how the frontend,
-          backend, database, authentication, and tests work together in a full-stack web app. It also helped
-          me understand what frameworks do behind the scenes because the backend was built with custom
-          Node.js logic instead of backend frameworks.
+          Through this project, I strengthened my understanding of how frontend
+          state, backend APIs, MySQL data, authentication, middleware, and automated
+          tests work together in a full-stack application. Building the backend
+          without a framework also helped me understand the functionality that
+          frameworks usually provide.
         </p>
       </div>
 
       <div class="detail-card wide">
         <h2>Project Screenshots</h2>
         <p>
-          These screenshots show the main user flow: registering or logging in, managing expenses, and organizing
-          categories.
+          These screenshots show the main user flow: logging in, managing expenses, and organizing categories.
         </p>
 
         <div class="screenshot-list">
           <div class="screenshot-item">
-            <h3>Login / Registration</h3>
-            <img src="../images/expense-login.png" alt="Screenshot of Expense Tracker login" class="detail-image">
+            <h3>Login Page</h3>
+            <img src="../images/expense-login.png" alt="Screenshot of Expense Tracker login" class="detail-image"
+              loading="lazy">
           </div>
 
           <div class="screenshot-item">
             <h3>Expense Tracker Page</h3>
-            <img src="../images/expense.png" alt="Screenshot of Expense Tracker expense records" class="detail-image">
+            <img src="../images/expense.png" alt="Screenshot of Expense Tracker expense records" class="detail-image"
+              loading="lazy">
           </div>
 
           <div class="screenshot-item">
             <h3>Categories Page</h3>
             <img src="../images/expense-categories.png" alt="Screenshot of Expense Tracker categories"
-              class="detail-image">
+              class="detail-image" loading="lazy">
           </div>
         </div>
       </div>
-
-      <div class="detail-card wide">
-        <h2>Code Snippet</h2>
-        <p>
-          This snippet shows part of the user registration and login logic. Passwords are hashed with bcrypt before
-          being stored, and a JWT token is created after a successful login.
-        </p>
-
-        <pre><code>async addUser(username, password) {
-    if (!username || username.trim().length == 0) {
-        throw new Error('Username must not be empty');
-    }
-
-    if (!password || password.length == 0) {
-        throw new Error('Password must not be empty');
-    }
-
-    const passwordHash = await bcrypt.hash(password, 10);
-    const result = await this.db.insertUser(username, passwordHash);
-
-    return result.insertId;
-}
-
-async loginUser(req, res) {
-    try {
-        const user = await this.reqParser(req);
-
-        await this.usersState.verifyUser(user.username, user.password);
-
-        const token = jwt.sign(
-            { username: user.username },
-            process.env.JWT_SECRET
-        );
-
-        this.resCreator(200, { token: token }, res);
-    } catch (err) {
-        this.resCreator(err.statusCode || 500, { error: err.message }, res);
-    }
-}</code></pre>
-      </div>
-
-      <div class="detail-card wide">
-        <h2>Future Enhancements</h2>
-        <p>
-          Future improvements include improving the visual design,
-          filtering expenses by month or category, and implementing session cookies for login sessions.
-        </p>
-      </div>
-
     </section>
   </main>
 
