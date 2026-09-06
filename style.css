@@ -647,6 +647,18 @@ h3 {
     font-weight: 700;
 }
 
+.resume-contact a {
+    transition: .2s ease;
+}
+
+.resume-contact a:hover,
+.resume-contact a:focus-visible {
+    color: var(--accent-dark);
+    background: var(--surface-strong);
+    border-color: var(--gray-medium);
+    transform: translateY(-2px);
+}
+
 .resume-block.wide {
     grid-column: 1 / -1;
 }
@@ -893,5 +905,14 @@ code {
     code {
         display: block;
         max-width: 100%;
+    }
+
+    .contact-info-list a>div,
+    .contact-location>div {
+        min-width: 0;
+    }
+
+    .contact-info-list span {
+        overflow-wrap: anywhere;
     }
 }

@@ -4,8 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Online resume of Uliana Topilina" />
+  <meta name="description" content="Online resume of Uliana Topilina" />
   <title>Uliana Topilina - Resume</title>
   <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="style.css" />
@@ -15,7 +14,7 @@
 
   <header class="site-header">
     <a class="logo" href="index.html" aria-label="Uliana Topilina home">UT</a>
-    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
     <nav class="nav-links">
       <a href="index.html#about">About</a>
       <a href="index.html#projects">Projects</a>
@@ -29,7 +28,7 @@
     <section class="section resume-hero">
       <p class="eyebrow">Resume</p>
       <h1>Uliana Topilina</h1>
-      <p>Software Engineering Student | Full-Stack Web Development Focus | JavaScript, Java, SQL</p>
+      <p>Software Engineering Student | Full-Stack Development Focus | JavaScript, Python, SQL</p>
 
       <div class="resume-contact">
         <a href="mailto:uliana.a.topilina@gmail.com">uliana.a.topilina@gmail.com</a>
@@ -44,9 +43,10 @@
 
       <div class="resume-block wide">
         <p>
-          Software Engineering student focused on full-stack web development, with hands-on experience in JavaScript,
-          Node.js, SQL, REST APIs, and database design. Strong problem-solving, communication, and attention-to-detail
-          skills developed through software projects and previous healthcare experience.
+          Software Engineering student focused on full-stack web development, with hands-on experience building web
+          applications, REST APIs, and relational databases through coursework and projects.
+          Strong problem-solving, communication, and attention-to-detail
+          skills developed through previous healthcare and self-employment experience.
         </p>
       </div>
 
@@ -58,21 +58,21 @@
           <p class="degree-title">Bachelor of Applied Science, Computing and Software Development</p>
           <p>Expected Jun 2027</p>
           <p>
-            <strong>Relevant Coursework:</strong> Web Application Development, Database Modeling & Design,
-            Security Foundations
+            <strong>Relevant Coursework:</strong> Software Engineering, Web Application Development,
+            Database Modeling &amp; Design, Security Foundations
           </p>
         </div>
 
         <div class="education-item">
           <h3>Lake Washington Institute of Technology</h3>
-          <p class="degree-title">Associate Degree, Computing and Software Development</p>
+          <p class="degree-title">Associate of Applied Science - Transfer, Computing and Software Development</p>
           <p>Jun 2025</p>
           <p>
             <strong>GPA:</strong> 3.91<br>
             <strong>Honors:</strong> Summa Cum Laude, Phi Theta Kappa Honor Society
           </p>
           <p>
-            <strong>Relevant Coursework:</strong> Algorithms & Data Structures, JavaScript, HTML/CSS, SQL,
+            <strong>Relevant Coursework:</strong> Algorithms &amp; Data Structures, JavaScript, HTML/CSS, SQL,
             Java Programming
           </p>
         </div>
@@ -80,10 +80,10 @@
 
       <div class="resume-block">
         <h2>Technical Skills</h2>
-        <p><strong>Languages:</strong> JavaScript, Java, SQL</p>
-        <p><strong>Frameworks:</strong> Node.js</p>
-        <p><strong>Tools/Technologies:</strong> Git, GitHub, Jira, VS Code, REST APIs, HTML/CSS</p>
+        <p><strong>Languages:</strong> JavaScript, Python, Java, SQL</p>
+        <p><strong>Web Technologies:</strong> React, Node.js, Express, HTML/CSS, REST APIs</p>
         <p><strong>Databases:</strong> MySQL</p>
+        <p><strong>Tools:</strong> Git, Jira, VS Code</p>
       </div>
 
       <div class="resume-block wide">
@@ -91,21 +91,20 @@
 
         <div class="resume-item">
           <h3>Student Attendance Tracker Web App</h3>
-          <p><strong>Team Coursework Project | Apr 2026 – Present</strong></p>
+          <p><strong>Team Coursework Project</strong></p>
           <ul>
             <li>
-              Collaborating in a 6-person team to design and build a full-stack web app for a Montessori school with
-              about 100-150 students.
+              Collaborated on a 6-person team to build a React, Express, and MySQL
+              attendance system with 4-digit PINs, QR code check-in/check-out, and
+              timestamped records.
             </li>
             <li>
-              The app helps authorized adults check students in and out using QR codes or securely stored 4-digit codes.
+              Designed the MySQL schema and ERD and implemented REST API functionality
+              for adding students and authorized adults.
             </li>
             <li>
-              Planned stack includes JavaScript, React.js, Node.js, Express.js, and MySQL.
-            </li>
-            <li>
-              Contributions so far include database design, SQL database setup, documentation, and team collaboration
-              using Jira and GitHub.
+              Connected the administrator login form to backend credential verification,
+              updated QR code handling, and created and maintained project documentation.
             </li>
           </ul>
         </div>
@@ -115,31 +114,27 @@
           <p><strong>Coursework Project</strong></p>
           <ul>
             <li>
-              Developed features for a full-stack expense tracker using JavaScript, Node.js, MySQL, HTML/CSS, and
-              Vitest.
+              Implemented REST API handlers using JavaScript and Node.js and connected them to MySQL, allowing users to
+              add, view, edit, and delete their own expenses and categories.
             </li>
             <li>
-              Built multiple-user support, registration/login, password hashing with bcrypt, JWT authentication, and
-              user-specific expenses and categories.
-            </li>
-            <li>
-              Implemented client-side pages, server API handlers, database logic, authentication flow, and unit tests.
+              Added multi-user registration and login with secure password hashing, JWT authentication, and client-side
+              token handling; wrote Vitest tests and improved the UI.
             </li>
           </ul>
         </div>
 
         <div class="resume-item">
-          <h3>Book Search Mobile App</h3>
+          <h3>Maze Generator and Solver</h3>
           <p><strong>Coursework Project</strong></p>
           <ul>
             <li>
-              Developed an Android book search app that lets users search by title or author and view book details.
+              Implemented randomized maze generation and a depth-first search solver with stack-based backtracking in
+              C++, removing unsuccessful paths while preserving the final solution.
             </li>
             <li>
-              Used Java, Android Studio, and Retrofit to fetch book data from the Open Library API.
-            </li>
-            <li>
-              Displayed book covers and results and handled loading states, empty searches, and no-result messages.
+              Managed maze walls, visited cells, path tracking, and a dynamic 2D grid; used OpenCV to animate the maze
+              as it was generated and solved, with CMake for build configuration.
             </li>
           </ul>
         </div>
@@ -149,7 +144,7 @@
         <h2>Experience</h2>
 
         <div class="resume-item">
-          <h3>Self-Employed Infant & Child Wellness Provider</h3>
+          <h3>Self-Employed Infant &amp; Child Wellness Provider</h3>
           <p><strong>Rostov-on-Don, Russia | Jan 2019 – Nov 2021</strong></p>
           <ul>
             <li>

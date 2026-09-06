@@ -64,7 +64,11 @@ if (contactForm) {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString()
     })
-      .then(() => {
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Form submission failed.");
+        }
+
         window.location.href = "success.html";
       })
       .catch(() => {
