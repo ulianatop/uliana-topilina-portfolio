@@ -237,6 +237,14 @@ h3 {
     transform: translateY(-2px);
 }
 
+.button.secondary:hover,
+.button.secondary:focus-visible {
+    color: var(--accent-dark);
+    background: var(--surface-strong);
+    border-color: var(--gray-medium);
+    transform: translateY(-2px);
+}
+
 .profile-wrap {
     position: relative;
     display: grid;
